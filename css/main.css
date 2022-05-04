@@ -1,0 +1,64 @@
+:root {
+  --white: #fff;
+  --grey: #656565;
+  --green: #339710;
+  --yellow: #dda619;
+  --dark_1: #222431;
+  --dark_2: #1c1e1f;
+}
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+@font-face {
+  font-family: "inter light";
+  src: url("../fonts/Inter/static/Inter-Light.ttf");
+}
+main {
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "navigation digest digest"
+    "navigation video opinion"
+    "navigation headlines  business";
+  grid-template-columns: 1fr 3fr 2fr;
+  gap: 10px;
+  height: 100vh;
+}
+.header,
+.navigation,
+.digest,
+.video,
+.opinion,
+.headlines,
+.business {
+  column-rule: white;
+  font-size: 2rem;
+  padding: 2.4rem;
+  background-color: steelblue;
+  border: 1px solid skyblue;
+}
+
+.header {
+  grid-area: header;
+}
+.navigation {
+  grid-area: navigation;
+}
+.digest {
+  grid-area: digest;
+}
+.video {
+  grid-area: video;
+}
+.opinion {
+  grid-area: opinion;
+}
+.headlines {
+  grid-area: headlines;
+}
+.business {
+  grid-area: business;
+}
