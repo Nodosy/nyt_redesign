@@ -1,20 +1,52 @@
 :root {
   --white: #fff;
-  --grey: #656565;
-  --green: #339710;
-  --yellow: #dda619;
-  --dark_1: #222431;
+  --grey: #383a3b;
+  --dark_1: #232526;
   --dark_2: #1c1e1f;
+  --grey_2: #ffffff;
+  --text-grey: #909192;
+  --text-grey_2: #4e5050;
+  --bg-color-1: #323435;
 }
 *,
 *:before,
 *:after {
   box-sizing: border-box;
-  font-size: 62.5%;
+  /* font-size: 62.5%; */
 }
 @font-face {
-  font-family: "inter light";
-  src: url("../fonts/Inter/static/Inter-Light.ttf");
+  font-family: "roboto regular";
+  src: url("../fonts/Roboto/Roboto-Regular.ttf");
+}
+@font-face {
+  font-family: "roboto medium";
+  src: url("../fonts/Roboto/Roboto-Medium.ttf");
+}
+@font-face {
+  font-family: "roboto bld";
+  src: url("../fonts/Roboto/Roboto-Bold.ttf");
+}
+body,
+html {
+  background-color: var(--dark_2);
+  font-size: 62.5%;
+}
+a:link,
+a:visited {
+  color: var(--text-grey_2);
+  font-size: 1.5rem;
+  font-family: "roboto medium";
+  font-weight: 500;
+  text-transform: capitalize;
+  text-decoration: none;
+  line-height: 2rem;
+}
+a:hover,
+a:active {
+  color: #000;
+}
+a:focus {
+  border: 1px solid red;
 }
 main {
   display: grid;
@@ -23,42 +55,318 @@ main {
     "navigation digest digest"
     "navigation video opinion"
     "navigation headlines  business";
+  /* grid-template-columns: 1fr 3fr 2fr; */
   grid-template-columns: 1fr 3fr 2fr;
-  gap: 10px;
-  height: 100vh;
-}
-.header,
-.navigation,
-.digest,
-.video,
-.opinion,
-.headlines,
-.business {
-  column-rule: white;
-  font-size: 2rem;
-  padding: 2.4rem;
-  background-color: steelblue;
-  border: 1px solid skyblue;
+  /* gap: 10px; */
+  /* height: 100vh; */
 }
 
+/* .business {
+  font-size: 2rem;
+  padding: 0;
+  border: 1px solid skyblue;
+} */
+/* .digest {
+  border: 1px solid skyblue;
+} */
 .header {
   grid-area: header;
+  background-color: var(--dark_1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 1.4rem 3rem;
+  border-bottom: 1px solid var(--dark_2);
 }
+.header-left,
+.center,
+.header-right {
+  width: 33.33%;
+}
+.header-left {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+header .header-left form {
+  border-radius: 0.8rem;
+}
+header form > div > input[type="text"] {
+  color: var(--white);
+  font-size: 1.5rem;
+  font-family: "roboto medium";
+  font-weight: 500;
+  text-transform: capitalize;
+  border: 0;
+  border-radius: 0.6rem;
+  width: 21rem;
+  height: 3.2rem;
+  padding: 0.6rem 3.6rem;
+  outline: 0;
+  background-color: var(--grey);
+}
+header form > div > input[type="text"]::placeholder {
+  color: var(--text-grey);
+}
+.wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-width: 100px;
+}
+.search-icon {
+  position: absolute;
+  width: 1.6rem;
+  height: 1.6rem;
+  position: absolute;
+  left: 10px;
+}
+/* .wrapper::before {
+  content: url(../img/search-outline.svg);
+  position: absolute;
+} */
 .navigation {
   grid-area: navigation;
+  background-color: var(--dark_1);
+  font-size: 1.5rem;
+  font-family: "roboto medium";
+  font-weight: 500;
+  text-transform: capitalize;
+  border: 0;
+  padding: 2rem 3rem 8rem 3rem;
+}
+.nav-1 {
+  padding-bottom: 4rem;
+  border-bottom: 1px solid #38393a;
+}
+.nav-2 {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid #38393a;
+}
+.nav-3 {
+  padding-top: 4rem;
+}
+.nav-3 > li {
+  display: flex;
+  justify-content: space-between;
 }
 .digest {
   grid-area: digest;
 }
+.digest > section {
+  display: flex;
+  justify-content: space-between;
+  /* flex-wrap: wrap; */
+  gap: 0.5rem;
+  padding: 1rem 1.4rem;
+}
+.digest > section > section {
+  width: 21rem;
+  height: 10.4rem;
+  /* height: 10rem; */
+  padding: 1.2rem;
+}
+.digest > section > section > h3 {
+  color: var(--white);
+  font-size: 1.6rem;
+  font-family: "roboto medium";
+  font-weight: 500;
+  margin-bottom: 1.6rem;
+}
+.digest > section > section > p {
+  color: var(--white);
+  font-size: 1.2rem;
+  font-family: "roboto regular";
+  font-weight: 500;
+}
+.digest > section > section {
+  border-radius: 8px;
+}
+.digest > section > section:first-child {
+  background: linear-gradient(135.45deg, #20bdff 0%, #a5fecb 164.32%);
+}
+.digest > section > section:nth-child(2) {
+  background: linear-gradient(316.92deg, #ffe259 -25.95%, #ffa751 100%);
+}
+.digest > section > section:nth-child(3) {
+  background: linear-gradient(
+    135deg,
+    rgba(68, 160, 141, 0.99522) 0%,
+    #093637 100%
+  );
+}
+.digest > section > section:nth-child(4) {
+  background: linear-gradient(137.5deg, #ff512f 0%, #dd2476 149.53%);
+}
+.digest > section > section:nth-child(5) {
+  background: linear-gradient(315deg, #0f0f0f 0%, #1c1c1c 100%);
+}
 .video {
   grid-area: video;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1.4rem;
+  gap: 2rem;
+}
+.video > h2 {
+  font-size: 1.6rem;
+  color: var(--white);
+  font-family: "roboto bold";
+  font-weight: 700;
+  text-transform: capitalize;
+}
+.video > section {
+  display: flex;
+  gap: 2.4rem;
 }
 .opinion {
   grid-area: opinion;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1.4rem;
+  gap: 2rem;
+}
+.opinion > section:first-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.opinion > section:first-child > h2 {
+  color: var(--white);
+  font-size: 1.6rem;
+  font-family: "roboto bold";
+  font-weight: 700;
+  text-transform: capitalize;
+}
+.opinion > section:first-child > span > a {
+  color: var(--white);
+  font-size: 1.4rem;
+  font-family: "roboto regular";
+  font-weight: 400;
+}
+.opinion > section:last-child {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.4rem;
+}
+.opinion > section:last-child > article {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  width: 21rem;
+  height: 8.8rem;
+  background-color: var(--bg-color-1);
+  border-radius: 0.8rem;
+  padding: 1.2rem 0.8rem;
+}
+.opinion > section:last-child > article > h3 {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 1.5rem;
+  font-family: "roboto medium";
+  font-weight: 500;
+  line-height: 2rem;
+}
+.opinion > section:last-child > article > p {
+  color: var(--white);
+  font-size: 1.4rem;
+  font-family: "roboto medium";
+  font-weight: 500;
+  line-height: 2rem;
 }
 .headlines {
   grid-area: headlines;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1.4rem;
+  gap: 2rem;
+}
+.headlines h2 {
+  font-size: 1.6rem;
+  color: var(--white);
+  font-family: "roboto bold";
+  font-weight: 700;
+  text-transform: capitalize;
+}
+.headlines > section {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+.headlines > section > h3 {
+  color: var(--white);
+  font-size: 2.4rem;
+  font-family: "roboto medium";
+  font-weight: 500;
+}
+.headlines > section > p {
+  color: var(--white);
+  font-size: 1.6rem;
+  font-family: "roboto regular";
+  font-weight: 400;
 }
 .business {
   grid-area: business;
+  padding: 1rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.business > section:first-child {
+  display: flex;
+  justify-content: space-between;
+}
+.business > section:first-child > h2 {
+  color: var(--white);
+  font-size: 1.6rem;
+  font-family: "roboto bold";
+  font-weight: 700;
+  text-transform: capitalize;
+}
+.business > section:first-child > span > a {
+  color: var(--white);
+  font-size: 1.4rem;
+  font-family: "roboto regular";
+  font-weight: 400;
+}
+.business > section:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+.business > section:last-child > section {
+  display: flex;
+  gap: 2.4rem;
+}
+.business > section:last-child > section:not(:first-child) {
+  border-top: 2px solid rgba(216, 216, 216, 0.2);
+  padding-top: 1.65rem;
+}
+
+.business > section:last-child > section > section > h3 {
+  font-size: 1.5rem;
+  color: var(--white);
+  font-family: "roboto bold";
+  font-weight: 700;
+  text-transform: capitalize;
+  line-height: 2rem;
+}
+
+.business > section:last-child > section > section > p {
+  font-size: 1.4rem;
+  color: var(--white);
+  font-family: "roboto regular";
+  font-weight: 400;
+  line-height: 2rem;
 }
